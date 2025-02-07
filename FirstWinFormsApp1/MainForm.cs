@@ -51,20 +51,22 @@ namespace FirstWinFormsApp
             {
                 return;
             }
-            // получаем выбранный файл
-            string fullPathToFile = SelectedImageFileDialog.FileName;
-            string fileName = Path.GetFileName(fullPathToFile);
-            if (isExistsPath(fullPathToFile))
+            // получаем выбранный файл            
+            foreach (string fullPathToFile in SelectedImageFileDialog.FileNames)
             {
-                MessageBox.Show(
-                    $"Извините, но такая картинка добавлена с именем {fileName}, " +
-                    $"под индексом: {fullPaths_.IndexOf(fullPathToFile)}"
-                    );
+                string fileName = Path.GetFileName(fullPathToFile);
+                if (isExistsPath(fullPathToFile))
+                {
+                    MessageBox.Show(
+                        $"Извините, но такая картинка добавлена с именем {fileName}, " +
+                        $"под индексом: {fullPaths_.IndexOf(fullPathToFile)}"
+                        );
 
-                return;
+                    return;
+                }
+                fullPaths_.Add(fullPathToFile);
+                Images.Items.Add(fileName);
             }
-            fullPaths_.Add(fullPathToFile);
-            Images.Items.Add(fileName);
         }
 
         private void Peoples_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -80,8 +82,7 @@ namespace FirstWinFormsApp
         }
 
         private void Images_SelectedIndexChanged(object sender, System.EventArgs e)
-        {
-            /// ДЗ: загружать связанную с выбранным элементом картинку в область PictureArea
+        {            
             int selectedIndex = Images.SelectedIndex;
             if(selectedIndex < 0)
             {
@@ -90,6 +91,19 @@ namespace FirstWinFormsApp
             string fullPath = fullPaths_[selectedIndex];
 
             PictureArea.Load(fullPath);
+        }
+
+        private void button_ChangeName_Click(object sender, System.EventArgs e)
+        {
+            int selectedIndex = Images.SelectedIndex;
+            if (selectedIndex < 0)
+            {
+                MessageBox.Show("не выбран элемент");
+            }
+            if (selectedIndex >= 0)
+            {
+                Images.Items[selectedIndex] = СhangeableName_TextBox.Text;
+            }
         }
     }
 }
