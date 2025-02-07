@@ -50,6 +50,7 @@ namespace FirstWinFormsApp
             inputText = inputText.TrimEnd();
             
             Peoples.Items.Add(inputText);
+            File.WriteAllText("D:\\ert.txt", inputText);
         }
 
         private void Peoples_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
