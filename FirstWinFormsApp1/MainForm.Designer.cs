@@ -33,9 +33,10 @@
             this.PictureArea = new System.Windows.Forms.PictureBox();
             this.SelectedImageFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button_ChangeName = new System.Windows.Forms.Button();
             this.СhangeableName_TextBox = new System.Windows.Forms.TextBox();
+            this.button_ChangeName = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button_EditPath = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PictureArea)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -48,7 +49,7 @@
             this.Images.FormattingEnabled = true;
             this.Images.ItemHeight = 16;
             this.Images.Location = new System.Drawing.Point(0, -5);
-            this.Images.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Images.Margin = new System.Windows.Forms.Padding(4);
             this.Images.Name = "Images";
             this.Images.Size = new System.Drawing.Size(352, 356);
             this.Images.TabIndex = 0;
@@ -59,7 +60,7 @@
             // 
             this.AddPeople.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddPeople.Location = new System.Drawing.Point(4, 407);
-            this.AddPeople.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddPeople.Margin = new System.Windows.Forms.Padding(4);
             this.AddPeople.Name = "AddPeople";
             this.AddPeople.Size = new System.Drawing.Size(100, 28);
             this.AddPeople.TabIndex = 1;
@@ -85,26 +86,25 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button_EditPath);
             this.panel1.Controls.Add(this.СhangeableName_TextBox);
             this.panel1.Controls.Add(this.button_ChangeName);
             this.panel1.Controls.Add(this.Images);
             this.panel1.Controls.Add(this.AddPeople);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(353, 442);
             this.panel1.TabIndex = 4;
             // 
-            // panel2
+            // СhangeableName_TextBox
             // 
-            this.panel2.Controls.Add(this.PictureArea);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(353, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(615, 442);
-            this.panel2.TabIndex = 5;
+            this.СhangeableName_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.СhangeableName_TextBox.Location = new System.Drawing.Point(4, 368);
+            this.СhangeableName_TextBox.Name = "СhangeableName_TextBox";
+            this.СhangeableName_TextBox.Size = new System.Drawing.Size(175, 22);
+            this.СhangeableName_TextBox.TabIndex = 3;
             // 
             // button_ChangeName
             // 
@@ -118,13 +118,26 @@
             this.button_ChangeName.UseVisualStyleBackColor = true;
             this.button_ChangeName.Click += new System.EventHandler(this.button_ChangeName_Click);
             // 
-            // СhangeableName_TextBox
+            // panel2
             // 
-            this.СhangeableName_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.СhangeableName_TextBox.Location = new System.Drawing.Point(4, 368);
-            this.СhangeableName_TextBox.Name = "СhangeableName_TextBox";
-            this.СhangeableName_TextBox.Size = new System.Drawing.Size(175, 22);
-            this.СhangeableName_TextBox.TabIndex = 3;
+            this.panel2.Controls.Add(this.PictureArea);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(353, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(615, 442);
+            this.panel2.TabIndex = 5;
+            // 
+            // button_EditPath
+            // 
+            this.button_EditPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_EditPath.Location = new System.Drawing.Point(186, 400);
+            this.button_EditPath.Name = "button_EditPath";
+            this.button_EditPath.Size = new System.Drawing.Size(134, 30);
+            this.button_EditPath.TabIndex = 4;
+            this.button_EditPath.Text = "изменить путь";
+            this.button_EditPath.UseVisualStyleBackColor = true;
+            this.button_EditPath.Click += new System.EventHandler(this.button_EditPath_Click);
             // 
             // MainForm
             // 
@@ -134,7 +147,7 @@
             this.ClientSize = new System.Drawing.Size(968, 442);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Заголовок главной формы";
             ((System.ComponentModel.ISupportInitialize)(this.PictureArea)).EndInit();
@@ -155,6 +168,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button_ChangeName;
         private System.Windows.Forms.TextBox СhangeableName_TextBox;
+        private System.Windows.Forms.Button button_EditPath;
     }
 }
 

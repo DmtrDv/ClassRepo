@@ -105,5 +105,21 @@ namespace FirstWinFormsApp
                 Images.Items[selectedIndex] = СhangeableName_TextBox.Text;
             }
         }
+
+        private void button_EditPath_Click(object sender, System.EventArgs e)
+        {
+            int selectedIndex = Images.SelectedIndex;
+            if (selectedIndex < 0)
+            {
+                MessageBox.Show("не выбран элемент");
+            }
+            if (selectedIndex >= 0)
+            {
+                SelectedImageFileDialog.ShowDialog();
+                string newPath = SelectedImageFileDialog.FileName;
+                fullPaths_[selectedIndex] = newPath;
+                Images.Items[selectedIndex] = Images.Items[selectedIndex];
+            }
+        }
     }
 }
